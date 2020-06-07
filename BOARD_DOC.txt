@@ -1,0 +1,128 @@
+Documentation for Board.java class.
+-- constructor format
+This class represents a general board usually used for board games. This particular board uses a double array of char to represent the board and its spaces, and follows a grid format where all rows are the same size and all columns are the same size.  The default size of the board is 3x3, but it can range from 1x1 to 100x100.  A blank char ' ' is used to represent a blank space as default, while '#' is used as the error char for when referring to a space that DNE.  This class has no dependencies, but it will likely be used by other classes.
+Version 1.0
+
+Board
+--------------------
+# DEFAULT_SIZE : int
+# MAX_SIZE : int
+# OPEN : char
+# ERROR_VALUE : char
+- board : char[][]
+------------------
++ Board() : void
++ Board(row : int, col : int) : void
++ getSpace(row : int, col : int) : char
++ isOpen(row : int, col : int) : boolean
++ setSpace(row : int, col : int, value : char) : void
++ reset() : void
++ toString() : String
+
+all inputs
+----------
+*Board(int row, int col) (2nd constructor)
+2 integers representing the desired size of the board, must be [0<:<=100], or else the default of 3 is used for both
+
+*getSpace(int row, int col) (1st getter method)
+2 int representing the designated space to be returned, row must be [0<=] and less than the row size, col must be [0<=] and less than the column size, or else the error char '#' is returned
+
+*isOpen(int row, int col) (2nd getter method)
+... to *getSpace, or else false is returned
+
+*setSpace(int row, int col, char value) (1st setter method)
+2 int representing the designated space to be returned, and a char representing the char value to be placed in the designated space, ... to *getSpace, value has no restrictions although it should be a standard char, or else no action is taken if the space DNE
+
+
+all outputs
+-----------
+*getSpace (1st getter method)
+returns a char of the designated space, returns the error char '#' if the designated space DNE
+
+*isOpen (2nd getter method)
+returns a boolean for if the designated space is blank, returns false if the designated space DNE
+
+*toString 
+returns a string of char for each board space
+
+
+possible errors
+---------------
+1. setting an invalid/impractical board size (Board)
+2. designating a space that DNE (getSpace, isOpen, setSpace)
+3. setting a space to the invalid char '#' (setSpace)
+
+sol
+---
+1. using the default grid 3x3 (other: throw exception)
+2. (getSpace) return err char '#' (other: return ' '), (isOpen) return false, (setSpace) do nothing (other: throw exception) 
+3. no sol, just recommend to not setting a space to '#'
+
+decisions
+---------
+3x3 as default grid size
+100x100 as maximum grid size
+' ' as open or blank space
+representing the board as a double array
+using char to represent each board space
+all columns the same size and all rows the same size
+not throwing exceptions on the possible errors with input
+***using board[0].length when error checking the designated space, could use private variables representing the size of the rows and columns as the upper bound to the error checking
+
+
+variables
+---------
+constants:
+*DEFAULT_SIZE = used by both constructors to set the board's length and width to 3x3
+*MAX_SIZE = used by the 2nd constructor as an upper bound to setting the baord's dimentions 
+*OPEN = used by both constructors, isOpen, and reset methods to represent a blank space
+*ERROR_VALUE = used by getSpace method as a placeholder, indicating the designated space DNE
+
+instance variables:
+*board = double array of characters representing the board, used by all methods
+
+
+methods
+-------
+constructors:
+*Board()
+input:none
+output:none
+initializes the board to the default size 3x3, and initializes all of the spaces to blank ' '
+
+*Board(int row, int col)
+input:2 int
+output:none
+initializes the board to a designated size if the dimensions are reasonable, otherwise sets the board to the defalut size 3x3, and initializes all of the spaces to blank ' '
+
+accessor methods:
+*getSpace(int row, int col)
+input:2 int
+output:char
+returns the char value of a designated space after error checking the input, returns the err char '#' otherwise
+
+*isOpen(int row, int col)
+input:2 int
+output:bool
+returns if the designated space is open or not, returns false otherwise
+
+mutator methods:
+*setSpace(int row, int col, char value)
+intput:2 int, 1 char
+output:none
+sets the designated space to the desired char value if it exists, does nothing otherwise
+
+*reset()
+input:none
+output:none
+resets the board by setting all of the existing spaces to blank ' ', dimensions of board remains unchanged
+
+extra methods:
+*toString()
+input:none
+output:string
+returns a string of char for each space organized as the board
+
+
+
+

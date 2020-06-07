@@ -1,0 +1,84 @@
+Documentation for Player.java class.
+-- constructor format
+This class represents a general player with a name. By default, the name "Player" is used. Allows for the ability to obtain and change the players name.
+Version 1.0
+
+Player
+-----------------------
+# DEFAULT_NAME : String
+- name : String
+-----------------
++ Player() : void
++ Player(name : String) : void
++ getName() : String
++ setName(name : String) : void
++ toString() : String
+
+all inputs
+----------
+*Player(name : String) (2nd constructor)
+A string representing the desired name for the player
+
+*setName(name : String) (setter method)
+A string representing the desired name change for the player
+
+
+all outputs
+-----------
+*getName (getter method)
+returns the player's name as a string
+
+
+possible errors
+---------------
+none, outside scope of this class
+
+sol
+---
+none
+
+decisions
+---------
+Using "Player" as default name
+Giving the player only a name
+
+
+variables
+---------
+constants:
+*DEFAULT_NAME = Used by the constructor to set the player's name to "Player" if one is not provided
+
+instance variables:
+*name = String representing the player's name, used by all methods
+
+
+methods
+-------
+construcctors:
+*Player()
+input:none
+output:none
+initializes the player's name with "Player" as the default
+
+*Player(name : String)
+input:String
+output:none
+initializes the player with the desired name
+
+accessor methods:
+*getName()
+input:none
+output:String
+returns the player's name as a string
+
+mutator methods:
+*setName(name : String)
+input:String
+output:none
+Sets the desired name as the player's name
+
+extra methods:
+*toString()
+input:none
+output:String
+returns the player's name as a string
